@@ -119,21 +119,23 @@ INFO;
       }
 
       // set up the final block of html to return
-      $html = <<<EOF
+      $html = <<<HTML
 <div class="mapworks">
   <div id="{$id}_map" class="mapworks_map"></div>
-  <!--<h6>Where are you?</h6>
-  <input id="{$id}_address" class="mapworks_address" type="textbox" size="50" />
-  <input id="{$id}_get_directions" class="mapworks_button" type="button" value="Get directions" />
-  <input id="{$id}_clear_directions" class="mapworks_button" type="button" value="Clear directions" />
-  <div id="{$id}_directions" class="mapworks_directions"></div>-->
+  <input id="{$id}_show_directions" type="button" value="Give me Directions!" />
+  <div id="{$id}_directions">
+    <label for="{$id}_address">Where are you?</label><input id="{$id}_address" class="mapworks_address" type="textbox" size="50" /><br />
+    <input id="{$id}_get_directions" class="mapworks_button" type="button" value="Get directions" />
+    <input id="{$id}_clear_directions" class="mapworks_button" type="button" value="Clear" />
+    <div id="{$id}_panel" class="mapworks_directions"></div>
+  </div>
   <script type="text/javascript">
     jQuery(function() {
       var map = new MapWorks("{$id}", "{$name}", "{$address}", {$zoom});{$latlng}{$info}
     });
   </script>
 </div>
-EOF;
+HTML;
       return $html;
     }
 
