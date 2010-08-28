@@ -89,13 +89,17 @@ if(!class_exists('JAB_MapWorks')) {
     function do_shortcode($atts, $content=null, $code="") {
       // get all the options from the user, or use the defaults here.
       extract( shortcode_atts(array(
-          'id' => sha1(rand(1, 16505723)),		// unique id to allow multiple annonymous maps per post/page
-          'name' => 'MapWorks by adaburrows.com',	// name of map, displayed in the marker tooltip
-          'address' => 'Portland, OR',			// address to be geocoded
-          'zoom' => '17',				// map zoom level
+          // unique id to allow multiple annonymous maps per post/page
+          'id' => sha1(rand(1, 16505723)),
+          // name of map, displayed in the marker tooltip
+          'name' => 'MapWorks by adaburrows.com',
+          // address to be geocoded
+          'address' => '1909 Southwest 6th Avenue Portland, OR 97201-5205',
+          // map zoom level
+          'zoom' => '17',
           // these two optionally override the geocoding
-          'lat' => null,				// lattitude of business
-          'lng' => null					// longitude of business
+          'lat' => null,	// lattitude of business
+          'lng' => null		// longitude of business
         ),$atts)
       );
 
@@ -106,7 +110,7 @@ if(!class_exists('JAB_MapWorks')) {
       }
 
       // set up the documentation example
-      if( ($content==null)&&($name=='MapWorks by adaburrows.com')&&($address=='Portland, OR') ) {
+      if( ($content==null)&&($name=='MapWorks by adaburrows.com')&&($address=='1909 Southwest 6th Avenue Portland, OR 97201-5205') ) {
         $info = <<<INFO
 map.set_info('<div class="mapworks_info"><h3>Simple Use Case:</h3>[mapworks name="Jillian Burrows" address="1909 Southwest 6th Avenue Portland, OR 97201-5205" zoom="13"]This is where I programmed most of this plugin.[/mapworks]</div>');
 INFO;
